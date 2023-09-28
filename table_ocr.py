@@ -5,7 +5,7 @@ from paddleocr import PaddleOCR
 
 
 def main(path: str):
-  image_dir = Path(path, "tables")
+  image_dir = Path(path)
   images = image_dir.glob("*.png")
   ocr = PaddleOCR(use_angle_cls=False, lang='en')
   for image in images:
@@ -13,7 +13,7 @@ def main(path: str):
     results = ocr.ocr(image_path, cls=False)
     boxes = []
     tokens = []
-    for result in results:
+    for result in results[0]:
       bbox, pair = result
       boxes.append(bbox)
       tokens.append(pair[0])
