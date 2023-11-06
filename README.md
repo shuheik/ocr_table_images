@@ -1,5 +1,4 @@
 # ocr_table_images
-表のpng画像に対するOCR結果をjsonファイルとして書き出します。
 
 ### Setup
 * Python 3.7+
@@ -19,3 +18,10 @@ pip install paddleocr
 python table_ocr.py /data/path
 ```
 * `/data/path/tables`以下にOCR結果のjsonファイルが出力される。
+
+### 表構造認識の適用
+* 表領域を切り出した画像を置いたフォルダ(img\_dir)、画像の拡張子(extension)、htmlファイルを出力するフォルダ(out\_dir)を指定し、以下を実行する。
+```
+python ocr_tsr.py --img-dir img_dir --extension png --out-dir out_dir
+```
+* out\_dirに表構造認識結果のhtmlファイルが出力される。
